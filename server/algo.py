@@ -7,3 +7,4 @@ result = DeepFace.analyze(img, actions = ['emotion'])
 query = str(max(zip(result[0]['emotion'].values(),
                     result[0]['emotion'].keys()))[1])
 print(query)
+

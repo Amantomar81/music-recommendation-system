@@ -21,12 +21,26 @@ const CameraSection = () => {
     const formData = new FormData();
     formData.append("image", image);
 
+    let headers = new Headers();
+
+    // headers.append("Content-Type", "application/json");
+    // headers.append("Accept", "application/json");
+
+    // headers.append("Access-Control-Allow-Origin", "http://localhost:3333");
+    // headers.append("Access-Control-Allow-Credentials", "true");
+
+    // headers.append("GET", "POST", "OPTIONS");
+
     await fetch("/upload", {
       method: "POST",
+      // headers: headers,
       body: formData,
+
     })
       .then((data) => data.json())
-      .then((songs) => setSongs(songs))
+      .then((songs) => {
+        setSongs(songs);
+      })
       .catch((err) => console.log(err));
 
     // await fetch("/upload", {
@@ -43,8 +57,8 @@ const CameraSection = () => {
 
     // const response = await axios.post("/upload", imageSource, config);
 
-    // console.log(imageSource);
-    // console.log(songs);
+    console.log(imageSource);
+    console.log(songs);
     // setEmotion(songs);
 
     setWebCam(false);
